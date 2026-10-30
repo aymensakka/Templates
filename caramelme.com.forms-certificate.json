@@ -1,0 +1,17 @@
+{
+  "providerId": "caramelme.com",
+  "providerName": "Caramel",
+  "serviceId": "forms-certificate",
+  "serviceName": "Certificate for forms on your domain",
+  "version": 1,
+  "logoUrl": "https://app.caramelme.com/caramel-icon.svg",
+  "description": "Lets Caramel issue and renew the TLS certificate for a business's forms hostname (step 2 of 2): one delegated certificate-validation CNAME. Apply with host set to the forms hostname's label(s).",
+  "variableDescription": "dcvlabel: the delegated certificate-validation label for this hostname; the template appends the fixed .dcv.cloudflare.com suffix, so the record can only point into that namespace.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "caramelme.com",
+  "syncRedirectDomain": "api.caramelme.com,tcafwdazdelfwqmizwxr.supabase.co",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "_acme-challenge", "pointsTo": "%dcvlabel%.dcv.cloudflare.com", "ttl": 300 }
+  ]
+}

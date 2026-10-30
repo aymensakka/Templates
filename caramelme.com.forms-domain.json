@@ -1,0 +1,19 @@
+{
+  "providerId": "caramelme.com",
+  "providerName": "Caramel",
+  "serviceId": "forms-domain",
+  "serviceName": "Forms on your domain",
+  "version": 1,
+  "logoUrl": "https://app.caramelme.com/caramel-icon.svg",
+  "description": "Serves a business's Caramel forms from its own hostname (step 1 of 2): an ownership TXT record and a CNAME routing the hostname to the forms origin. Apply with host set to the forms hostname's label(s).",
+  "variableDescription": "token: the per-claim ownership token Caramel checks before it issues a certificate for the hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "caramelme.com",
+  "syncRedirectDomain": "api.caramelme.com,tcafwdazdelfwqmizwxr.supabase.co",
+  "hostRequired": true,
+  "records": [
+    { "type": "TXT", "host": "_caramel-verify", "data": "%token%", "ttl": 300,
+      "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "@", "pointsTo": "forms.joincaramel.com", "ttl": 300 }
+  ]
+}
